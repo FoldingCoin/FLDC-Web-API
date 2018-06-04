@@ -1,0 +1,17 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'eclipse'
+}
+
+group = 'net.foldingcoin.webapi'
+
+repositories {
+
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.rapidoid', name: 'rapidoid-quick', version: '5.5.4'
+}
