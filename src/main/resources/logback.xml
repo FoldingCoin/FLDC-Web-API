@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <timestamp key="myTimestamp" datePattern="yyyy-MM-dd'_'HH-mm-ss"/>
+    
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">        
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %level - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/${myTimestamp}.log</file>
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd_HH:mm:ss} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.rapidoid.http.impl.HttpRoutesImpl" level="error"/>
+    <logger name="org.rapidoid.env.Environment" level="error"/>
+    <logger name="org.rapidoid.config.ConfigImpl" level="error"/>
+    <logger name="org.rapidoid.setup.App" level="error"/>
+    
+    <root level="INFO">
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="FILE"/>
+    </root>
+    
+</configuration>
